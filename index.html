@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="mobile-web-app-capable" />
+    <meta name="appler-mobile-web-app-status-bar" content="#aa7700" />
+    <meta name="theme-color" content="black" />
+    <meta rel="apple-mobile-icon" href="assets/logos/WM_120x120.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site e Aplicativo PWA</title>
+</head>
+
+<body>
+    <div class="titulo">
+        <h1>No header um título da aplicação</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi quibusdam obcaecati architecto eum
+            provident dolorem animi, aliquam minus numquam adipisci, tempora distinctio, saepe fugit. Voluptatem in
+            eaque ipsum recusandae enim!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus ratione repudiandae asperiores! Veritatis
+            nostrum, rerum consequatur recusandae repudiandae nesciunt, blanditiis ex sint officia voluptas modi ea
+            minus dolorem fugiat nobis?</p>
+    </div>
+    <div class="link">
+        <a href="pagina2.html">Ir para a página 2</a>
+    </div>
+</body>
+
+<script>
+
+    
+    document.addEventListener("DOMContentLoaded", function (event) {
+            if ('serviceWorker' in navigator) {
+                console.log('has serviceworker');
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('serviceWorker.js')
+                        .then((registration) => {
+                            console.log('Service worker registered.', registration);
+                        });
+                });
+            }
+            else {
+                console.log("Your browser not supports serviceWorkers");
+            }
+        });
+    
+    </script>    
+
+</html>
